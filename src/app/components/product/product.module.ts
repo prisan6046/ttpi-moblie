@@ -1,16 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { Routes, RouterModule } from "@angular/router";
 
-import { IonicModule } from '@ionic/angular';
+import { IonicModule } from "@ionic/angular";
 
-import { ProductPage } from './product.page';
+import { ProductPage } from "./product.page";
+import { MyModule } from "src/app/my-module";
+import { DetialComponent } from "./detial/detial.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: ProductPage
+  },
+  {
+    path: "detial/:id",
+    component: DetialComponent
   }
 ];
 
@@ -19,8 +25,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MyModule
   ],
-  declarations: [ProductPage]
+  declarations: [ProductPage, DetialComponent]
 })
 export class ProductPageModule {}

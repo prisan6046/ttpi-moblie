@@ -1,22 +1,24 @@
-import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 import { LoadingController } from "@ionic/angular";
 
 @Component({
-  selector: "app-product",
-  templateUrl: "./product.page.html",
-  styleUrls: ["./product.page.scss"]
+  selector: "app-detial",
+  templateUrl: "./detial.component.html",
+  styleUrls: ["./detial.component.scss"]
 })
-export class ProductPage implements OnInit {
-  public dataProduct: any = null;
-  public loading: any = null;
+export class DetialComponent implements OnInit {
+  private loading: any = null;
+  public dataDetail: any = null;
   constructor(
-    private _http: HttpClient,
-    private loadingController: LoadingController
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    public loadingController: LoadingController
   ) {}
 
   ngOnInit() {
-    this.getProduct();
+    this.getDetail();
   }
 
   async presentLoading() {
@@ -27,14 +29,18 @@ export class ProductPage implements OnInit {
     await this.loading.present();
   }
 
-  private getProduct(): void {
+  private getDetail(): void {
     this.presentLoading();
-    this._http
-      .get(`https://www.ttpi.co.th/api/token/api/product`)
+    this.http
+      .get(
+        `https://www.ttpi.co.th/api/token/api/product?id=${this.route.snapshot.paramMap.get(
+          "id"
+        )}`
+      )
       .toPromise()
       .then((value: any) => {
-        this.dataProduct = value;
-        console.log(this.dataProduct);
+        this.dataDetail = value;
+        console.log(value);
       })
       .catch((reason: any) => {
         console.log(reason);

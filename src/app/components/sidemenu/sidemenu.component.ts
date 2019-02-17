@@ -16,6 +16,10 @@ export class SidemenuComponent implements OnInit {
       url: "/product"
     },
     {
+      title: "Catalog",
+      url: "/catalog"
+    },
+    {
       title: "Contact",
       url: "/contract"
     }

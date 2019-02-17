@@ -20,13 +20,16 @@ const routes: Routes = [
         loadChildren: "./components/contract/contract.module#ContractPageModule"
       },
       {
+        path: "catalog",
+        loadChildren: "./components/catalog/catalog.module#CatalogPageModule"
+      },
+      {
         path: "",
         redirectTo: "/home",
         pathMatch: "full"
       }
     ]
-  },
-  { path: "**", redirectTo: "/home", pathMatch: "full" }
+  }
 ];
 
 @NgModule({

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar class="header-background">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/product"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="dataDetail">
+      {{ dataDetail.Product_name }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding *ngIf="dataDetail">
+  <h3 class="text-center">{{ dataDetail.Product_name }}</h3>
+  <br />
+  <div class="card" style="border-color:#b32b2b;">
+    <img
+      src="https://www.ttpi.co.th/upload/Product/{{ dataDetail.Product_img }}"
+      class="card-img-top"
+      alt="..."
+    />
+  </div>
+  <br />
+  <div [innerHTML]="dataDetail.Product_Detail"></div>
+  <div class="row">
+    <div
+      class="col-md-4 mb-3"
+      *ngFor="let x of dataDetail.Product_collection_img.split('|')"
+    >
+      <div class="card" style="border-color:#b32b2b;" *ngIf="x">
+        <img
+          src="https://www.ttpi.co.th/upload/Product/{{ x }}"
+          class="card-img-top"
+          alt="..."
+        />
+      </div>
+    </div>
+  </div>
+</ion-content>
