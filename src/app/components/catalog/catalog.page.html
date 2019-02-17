@@ -9,4 +9,29 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding> </ion-content>
+<ion-content padding>
+  <div class="row" *ngIf="dataCatalog">
+    <div class="col-md-4 mb-3 text-center" *ngFor="let x of dataCatalog">
+      <div class="card" style="border-color:#b32b2b;">
+        <img
+          src="https://www.ttpi.co.th/images/catalog/FILE/{{ x.img }}"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <p class="card-text">
+            {{ x.name }}
+          </p>
+          <br />
+
+          <a
+            class="btn btn-primary"
+            [routerLink]="['/catalog/detail', x.id]"
+            routerDirection="forward"
+            >ดูรายละเอียด</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
