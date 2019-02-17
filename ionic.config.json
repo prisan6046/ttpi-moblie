@@ -1,0 +1,7 @@
+{
+  "name": "ttpi",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

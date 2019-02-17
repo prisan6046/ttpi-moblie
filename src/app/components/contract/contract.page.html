@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar class="header-background">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding style="--background: #fafafa;">
+  <div class="card mb-3" style="border-color:#b32b2b;">
+    <div class="card-body">
+      <h2 style="margin-top:0px !important;" class="card-title link-actived">
+        ข้อมูล
+      </h2>
+      <div class="card-text">
+        <h5>บริษัท ไทยเทคโนโลยี่เพาเวอร์อินเตอร์เทรด จำกัด</h5>
+        <h5>
+          <b>ที่อยู่ </b>88/6 หมู่ 23 ตำบลบางพลีใหญ่ อำเภอบางพลี
+          จังหวัดสมุทรปราการ 10540
+        </h5>
+        <h5><b>โทรศัพท์ </b>02-130-5016</h5>
+        <h5><b>แฟกซ์</b> 02-130-0517</h5>
+        <h5><b>ฝ่ายขาย</b> 088-7195507 (ขวัญ)</h5>
+        <h5><b>อีเมล์</b> pattaraporn.k@ttpi.co.th</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-3" style="border-color:#0354be;">
+    <div padding>
+      <h2
+        style="margin-top:0px !important;color: #0354be;"
+        class="link-actived"
+      >
+        Information
+      </h2>
+    </div>
+    <form
+      (ngSubmit)="informationFormSubmit(informationForm)"
+      #informationForm="ngForm"
+      padding
+    >
+      <div class="form-group">
+        <label>ชื่อ - นามสกุล <span style="color:#b32b2b;">*</span></label>
+        <input type="text" class="form-control" name="name" ngModel required />
+      </div>
+      <div class="form-group">
+        <label>โทรศัพท์</label>
+        <input type="text" class="form-control" name="phone" ngModel />
+      </div>
+      <div class="form-group">
+        <label>Email <span style="color:#b32b2b;">*</span></label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          ngModel
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label>หัวข้อ <span style="color:#b32b2b;">*</span></label>
+        <input type="text" class="form-control" name="topic" ngModel required />
+      </div>
+      <div class="form-group">
+        <label>ข้อความ <span style="color:#b32b2b;">*</span></label>
+        <textarea
+          class="form-control"
+          rows="4"
+          name="text"
+          ngModel
+          required
+        ></textarea>
+      </div>
+      <br />
+      <button
+        type="submit"
+        class="btn btn-danger btn-block"
+        [disabled]="informationForm.invalid"
+      >
+        ส่งข้อมูล
+      </button>
+    </form>
+  </div>
+
+  <img src="https://www.ttpi.co.th/photo/Map.jpg?v=1001" alt="" />
+</ion-content>
